@@ -109,24 +109,30 @@
 				 		//upload the image
 				 		//to upload image we need image name, source path and destination path
 				 		$image_name = $_FILES['image']['name'];
-				 		//auto rename image
-				 		//get the extension of the image (jpg,png, gif,etc)
-				 		$ext = end(explode('.', $image_name));
-				 		//rename the image
-				 		$image_name = "Food_Category_".rand(000, 999).'.'.$ext;
-				 		$source_path = $_FILES['image']['tmp_name'];
-				 		$destination_path = "../images/category/".$image_name;
-				 		//upload the image
-				 		$upload = move_uploaded_file($source_path, $destination_path);
-				 		//check whether the image uploaded or not and if the image is not uploaded then we will stop the process and redirect with error message
-				 		if ($upload==false) {
+				 		//upload the image only if image is selected
+				 		if ($image_name !="") {
 				 			# code...
-				 			//set message
-				 			$_SESSION['upload'] = "<div class='error'>Failed to upload Image.</div>";
-				 			//redirect to add category page
-				 			header('location:'.SITEURL.'admin/add-category.php');
-				 			//stop the process
-				 			die();
+
+				 		
+					 		//auto rename image
+					 		//get the extension of the image (jpg,png, gif,etc)
+					 		$ext = end(explode('.', $image_name));
+					 		//rename the image
+					 		$image_name = "Food_Category_".rand(000, 999).'.'.$ext;
+					 		$source_path = $_FILES['image']['tmp_name'];
+					 		$destination_path = "../images/category/".$image_name;
+					 		//upload the image
+					 		$upload = move_uploaded_file($source_path, $destination_path);
+					 		//check whether the image uploaded or not and if the image is not uploaded then we will stop the process and redirect with error message
+					 		if ($upload==false) {
+					 			# code...
+					 			//set message
+					 			$_SESSION['upload'] = "<div class='error'>Failed to upload Image.</div>";
+					 			//redirect to add category page
+					 			header('location:'.SITEURL.'admin/add-category.php');
+					 			//stop the process
+					 			die();
+					 		}
 				 		}
 				 	}
 				 	else
