@@ -1,4 +1,5 @@
 <?php include('../config/constants.php'); ?>
+<?php include('../partials/login-check.php'); ?>
 <html>
 	<head>
 		<title>4hungryU Website-Home Page</title>
@@ -15,6 +16,7 @@
 				<li><a href="manage-category.php">Category</a></li>
 				<li><a href="manage-food.php">Food</a></li>
 				<li><a href="manage-order.php">Order</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
 	</div>
@@ -24,6 +26,21 @@
 	<div class="main-content">
 		<div class="wrapper">
 			<h1>Dashboard</h1>
+			<br><br>
+			<?php
+				if (isset($_SESSION['login'])) {
+				 	# code...
+				 	echo $_SESSION['login'];
+				 	unset($_SESSION['login']);
+				 } 
+				 if (isset($_SESSION['no-login-message'])) {
+
+				 	# code...
+				 	echo $_SESSION['no-login-message'];
+				 	unset($_SESSION['no-login-message']);
+				 }
+			?>
+			<br><br>
 			<div class="col-4 text-center">
 				<h1>5</h1>
 				<br>

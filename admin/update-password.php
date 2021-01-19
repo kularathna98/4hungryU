@@ -1,4 +1,5 @@
 <?php include('../config/constants.php'); ?>
+<?php include('../partials/login-check.php'); ?>
 <html>
 	<head>
 		<title>4hungryU Website-Home Page</title>
