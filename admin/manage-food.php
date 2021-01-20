@@ -36,6 +36,22 @@
 					echo $_SESSION['add'];
 					unset($_SESSION['add']);
 				}
+				if (isset($_SESSION['delete'])) {
+					# code...
+					echo $_SESSION['delete'];
+					unset($_SESSION['delete']);
+				}
+				if (isset($_SESSION['upload'])) {
+					# code...
+					echo $_SESSION['upload'];
+					unset($_SESSION['upload']);
+				}
+				if (isset($_SESSION['unauthorize'])) {
+					# code...
+					echo $_SESSION['unauthorize'];
+					unset($_SESSION['unauthorize']);
+				}
+
 			?>
 			<table class="tbl-full">
 				<tr>
@@ -92,7 +108,7 @@
 									<td><?php echo $active; ?></td>
 									<td>
 										<a href="#" class="btn-secondary">Update Food</a>
-										<a href="#" class="btn-danger">Delete Food</a>
+										<a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
 									</td>
 								</tr>
 							<?php
